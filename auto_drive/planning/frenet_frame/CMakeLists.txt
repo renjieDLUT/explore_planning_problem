@@ -1,0 +1,2 @@
+add_library(cartesian_frenet_conversion cartesian_frenet_conversion.cpp)
+#add_executable(cartesian_frenet_conversion_test cartesian_frenet_conversion.cpp)

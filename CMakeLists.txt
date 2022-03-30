@@ -13,5 +13,6 @@ add_subdirectory(util)
 
 add_subdirectory(data_structure_and_algorithm)
 add_subdirectory(mathematic)
+add_subdirectory(auto_drive/planning)
 
 
