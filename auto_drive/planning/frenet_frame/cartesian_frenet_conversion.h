@@ -27,15 +27,23 @@ kappa:曲率；
 vehicle_speed:Cartesian坐标系下的线速度；
 accelerate_speed:Cartesian坐标系下的加速度；
 */
-#include<array>
-class CartesianFrenetConverter
-{
-public:
-	CartesianFrenetConverter() = delete;
-	static void frent_to_cartesian(const double rs, const double rx, const double ry, const double rtheta, const double rkappa, const double rdkappa,
-		const double s_condition[3], const double d_condition[3],double &x, double &y,double &theta,double &kappa,double &v,double& a);
-	static void cartesian_to_frent(const double rs, const double rx, const double ry, const double rtheta, const double rkappa, const double rdkappa,
-		const double x, const double y, const double v, const double a, const double theta, const double k,std::array<double, 3>* const ptr_s_condition,std::array<double, 3>* const ptr_d_condition);
+#include <array>
+class CartesianFrenetConverter {
+ public:
+  CartesianFrenetConverter() = delete;
+  static void frent_to_cartesian(const double rs, const double rx,
+                                 const double ry, const double rtheta,
+                                 const double rkappa, const double rdkappa,
+                                 const double s_condition[3],
+                                 const double d_condition[3], double &x,
+                                 double &y, double &theta, double &kappa,
+                                 double &v, double &a);
+  static void cartesian_to_frent(const double rs, const double rx,
+                                 const double ry, const double rtheta,
+                                 const double rkappa, const double rdkappa,
+                                 const double x, const double y, const double v,
+                                 const double a, const double theta,
+                                 const double k,
+                                 std::array<double, 3> *const ptr_s_condition,
+                                 std::array<double, 3> *const ptr_d_condition);
 };
-
-

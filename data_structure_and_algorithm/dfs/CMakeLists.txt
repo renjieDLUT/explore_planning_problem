@@ -1,0 +1,2 @@
+add_executable(square_filling_number square_filling_number.cpp)
+add_executable(path_mystery path_mystery.cpp)

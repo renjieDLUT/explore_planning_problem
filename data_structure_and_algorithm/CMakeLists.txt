@@ -1,1 +1,6 @@
+add_subdirectory(bfs)
+add_subdirectory(bisection)
+add_subdirectory(data_structure)
+add_subdirectory(dynamic_programming)
+add_subdirectory(dfs)
 add_subdirectory(sort)
