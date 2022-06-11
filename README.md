@@ -1,9 +1,10 @@
 # explore_planning_problem
 探索并整理自动驾驶及其他领域的决策规划问题
+另：注重基础能力的提升（coding能力，数据结构与算法）、数学知识（数值分析、优化理论）和工程化（coding style、版本控制、编译构建系统）
 
-@[TOC]（目录）
+[TOC]
 
-## 1. 自动驾驶领域
+## 1. 自动驾驶领域（auto_drive）
 
 ### 学习路线
 
@@ -62,3 +63,11 @@
 12. 构建速度规划优化问题：
 
 13. 熟悉dubins、reed-shepp曲线：
+
+## 2. 基础能力建设（basic）
+
+## 3. 数据结构与算法（data_structure_and_algorithm）
+
+## 4. 数学知识（mathematic）
+
+## 5. 提高
