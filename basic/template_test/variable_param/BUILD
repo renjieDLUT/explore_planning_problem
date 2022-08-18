@@ -1,0 +1,9 @@
+cc_library(
+    name="lib",
+    hdrs=glob(["*.h"]),
+)
+cc_binary(
+    name="variable_param",
+    srcs=glob(["*.cc"]),
+    deps=[":lib"]
+)

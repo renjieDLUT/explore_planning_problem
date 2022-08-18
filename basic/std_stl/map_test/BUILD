@@ -1,5 +1,10 @@
-cc_test(
+# cc_test(
+#     name="map",
+#     srcs=["map_test.cpp"],
+#     deps=["@com_google_googletest//:gtest_main"], 
+# )
+
+cc_binary(
     name="map",
-    srcs=["map_test.cpp"],
-    deps=["@com_google_googletest//:gtest_main"], 
+    srcs=["map_test.cpp"]
 )

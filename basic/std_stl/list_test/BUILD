@@ -1,4 +1,4 @@
 cc_binary(
     name="main",
-    srcs=["set_test.cpp"]
+    srcs=["list_test.cpp"]
 )
