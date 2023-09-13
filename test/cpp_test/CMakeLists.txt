@@ -1,0 +1,1 @@
+add_executable(inheritance_demo inheritance_demo.cc)
