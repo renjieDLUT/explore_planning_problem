@@ -4,3 +4,7 @@ build/
 .vscode/
 bazel*
 data
+run
+test/pytorch_test/bee_project/res
+*.pyc
+*event*

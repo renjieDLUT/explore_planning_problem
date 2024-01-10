@@ -46,3 +46,9 @@ tic = time.time()
 c = torch.mm(a, b)
 toc = time.time()
 print("cost time(GPU):", toc - tic)
+
+x=torch.ones(6,9).unsqueeze(dim=0)
+conv=nn.Conv2d(1,2,3,1,1)
+y=conv(x)
+print(y.shape,conv.weight.shape)
+

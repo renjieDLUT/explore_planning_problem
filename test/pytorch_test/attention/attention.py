@@ -26,3 +26,4 @@ if __name__ == "__main__":
     x = torch.rand((1, 4, 2))
     y = att(x)
     print(y.shape)
+

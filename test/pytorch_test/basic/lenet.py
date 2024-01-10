@@ -1,6 +1,7 @@
 from ast import Module
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.optim
 
 
 class LeNet(nn.Module):
@@ -30,3 +31,6 @@ net = LeNet()
 # print(net._modules)
 for module in net.named_modules():
     print(module)
+
+
+print(optimizer.state_dict())

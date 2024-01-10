@@ -6,6 +6,7 @@
 """
 import torch
 import numpy as np
+import torchvision.models
 
 # =============================根据数据直接创建===============================
 arr = np.ones((3, 3))
@@ -47,6 +48,8 @@ t = torch.logspace(0, 10, 3)
 
 t = torch.eye(3, 4)
 
+t = t.new_zeros(t.shape[0], 1)
+print("t:", t)
 # =============================依据概率分布 创建===============================
 # normal
 
@@ -113,7 +116,7 @@ torch.add(t1, t2)
 
 # =============================计算图===============================
 w = torch.tensor([1.], requires_grad=True)
-x = torch.tensor([1.], requires_grad=True)
+x = torch.tensor([1.], requires_grad=False)
 
 a = torch.add(w, x)
 b = torch.add(w, 1)
@@ -130,7 +133,78 @@ t = t.unsqueeze(dim=0)
 print(t, t.shape)
 t = t.squeeze()
 print(t, t.shape)
-t=t.view([3,1])
-print(t,t.shape)
+t = t.view([3, 1])
+print(t, t.shape)
 
-torch.autograd.Function
+t = torch.randint(0, 10, (2, 3, 3))
+print(t, t.sum())
+t = t.flatten(1)
+print(t.numel())
+
+t = torch.tensor([[0.3, 0.7], [0.4, 0.2], [0.1, 0.9]])
+y = [1, 1, 1]
+t = t.argmax(dim=1)
+x = [t[i] == y[i] for i in range(3)]
+print(x)
+
+t = torch.randn(2, 3)
+print(t)
+t = t.sum(dim=1, keepdim=True)
+print(t)
+
+t = torch.ones(3, 4)
+print(id(t))
+t = t.reshape(4, 3)
+print(id(t))
+torch.nn.Sequential()
+
+# ============================= 转置卷积 ===========================
+X = torch.tensor([[0., 1.], [2., 3.]])
+k = X.clone()
+X, k = X.reshape(1, 1, 2, 2), k.reshape(1, 1, 2, 2)
+conv_t = torch.nn.ConvTranspose2d(1, 1, 2, bias=False)
+conv_t.weight.data = k
+print(conv_t(X))
+
+# ============================= max ===========================
+
+x = torch.rand(6, 3, 100, 100)
+print(x[:, 2].shape)
+print(x.dim())
+
+x = torch.rand(6, 6)
+print(torch.max(x, dim=0))
+print(x[:, 1::2].shape)
+x = torch.Tensor([x[:, 1::2].shape, x[:, 1::2].shape])
+print(x)
+
+# ============================ mean ========================
+x = torch.ones(2, 2)
+print(x.mean().mean())
+
+
+print(x.shape)
+
+
+# ====================== interpolate =============
+x = torch.ones(6, 3, 100, 100)
+out: torch.Tensor = torch.nn.functional.interpolate(x, [200, 200])
+print(out.shape[2:])
+
+# ====================== parameter ================
+w = torch.nn.parameter.Parameter(torch.ones(2, 3))
+print(w)
+
+
+data=torch.zeros(3,3)
+data=data[None]
+print(data.shape)
+data.unsqueeze_(2)
+print(data.shape)
+print(data.reshape(-1).shape)
+
+r=torch.Tensor([1,2,3])
+c=torch.Tensor([4,5])
+x,y= torch.meshgrid(r,c)
+print(x)
+print(y)

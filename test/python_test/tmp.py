@@ -63,7 +63,7 @@ import numpy as np
 
 
 def step_funtion(x1: np.ndarray):
-    return np.array(x1 > 0, dtype=np.int)
+    return np.array(x1 > 0, dtype=int)
 
 
 def sigmoid(x1: np.ndarray):
@@ -80,7 +80,7 @@ plt.plot(x, y)
 plt.ylim(-0.1, 1.1)
 z = sigmoid(x)
 plt.plot(x, z)
-plt.show()
+# plt.show()
 
 x = np.array([[1, 2], [2, 3], [3, 4]])
 y = np.array([1, 2])
@@ -92,13 +92,13 @@ import matplotlib.pyplot as plt
 
 plt.figure(1)
 plt.plot([1, 2, 3, 4], [1, 2, 3, 4])
-plt.show()
+# plt.show()
 
 figure: plt.Figure = plt.figure(1)
 ax: plt.Axes = figure.add_subplot(2, 2, 1)
 ax.plot([1, 2, 3, 4], [1, 1, 1, 1])
 ax.set_xlabel("feature")
-plt.show()
+# plt.show()
 
 
 # =============================== inheritance 继承========================
@@ -174,3 +174,19 @@ print(dir(obj))
 string = "hello {}"
 string = string.format("world")
 print(string)
+
+# =========================== 一切都是对象 =====================
+a = 1
+b = "hello"
+f = Foo()
+
+print("type(a):{}, type(b):{},type(f):{}".format(type(a), type(b), type(f)))
+print(int.__bases__)
+print(type(int))
+print(type(object))
+print(type.__bases__)
+print(object.__bases__)
+print(Foo.__bases__)
+
+# ============================== 基础数据类型 ===========================
+

@@ -16,15 +16,18 @@ def transform_invert(img_tensor: torch.Tensor, transform: transforms.Compose):
         norm_tranform = norm_tranforms[0]
         mean = torch.tensor(norm_tranform.mean, dtype=img_tensor.dtype, device=img_tensor.device)
         std = torch.tensor(norm_tranform.std, dtype=img_tensor.dtype, device=img_tensor.device)
-        img = img_tensor.mul(std[0]) + mean[0]
-        img = img.transpose(0, 1).transpose(1, 2)
-        img = img.numpy() * 255
+        img_tensor = img_tensor.mul(std[0]) + mean[0]
+    img_tensor = img_tensor.transpose(0, 1).transpose(1, 2)
+    if 'ToTensor' in str(transform):
+        if img_tensor.device != 'cpu':
+            img_tensor=img_tensor.to("cpu")
+        img_tensor = img_tensor.detach().numpy() * 255
 
-        if img.shape[2] == 3:
-            img = Image.fromarray(img.astype('uint8')).convert('RGB')
-        elif img.shape[2] == 1:
-            img = Image.fromarray(img.astype('uint8').squeeze())
-        return img
+    if img_tensor.shape[2] == 3:
+        img_tensor = Image.fromarray(img_tensor.astype('uint8')).convert('RGB')
+    elif img_tensor.shape[2] == 1:
+        img_tensor = Image.fromarray(img_tensor.astype('uint8').squeeze())
+    return img_tensor
 
 
 if __name__ == "__main__":
