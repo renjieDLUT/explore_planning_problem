@@ -1,0 +1,5 @@
+extends:
+  file: 'base.yaml'
+  optional: true
+  merge: true
+school: 'hhdx'

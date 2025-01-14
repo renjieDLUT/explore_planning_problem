@@ -208,3 +208,7 @@ c=torch.Tensor([4,5])
 x,y= torch.meshgrid(r,c)
 print(x)
 print(y)
+
+
+data=torch.ones(5,4,5)
+print(data[torch.tensor([[1, 2,3], [2, 3,2]])])

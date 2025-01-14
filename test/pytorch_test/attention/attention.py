@@ -1,3 +1,11 @@
+'''
+Author: renjie renjie_dlut2016@163.com
+Date: 2024-01-10 15:05:49
+LastEditors: renjie renjie_dlut2016@163.com
+LastEditTime: 2024-01-29 18:54:42
+FilePath: /explore_planning_problem/test/pytorch_test/attention/attention.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 import torch
 from torch import nn as nn
 
@@ -19,7 +27,6 @@ class Self_Attention(nn.Module):
         attn = attn.softmax(dim=-1)
         x = torch.matmul(attn, v)
         return x
-
 
 if __name__ == "__main__":
     att = Self_Attention(dim=2, dk=2, dv=3)
